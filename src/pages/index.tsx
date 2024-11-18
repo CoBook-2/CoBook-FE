@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 const HomePage: React.FC = () => {
   return (
     <div className={styles.container}>
+      <h1 className={styles.headingBlack}>홈페이지</h1>
       <h1 className={styles.headingBlack}>NotoSans Black (900)</h1>
       <h1 className={styles.headingExtraBold}>NotoSans ExtraBold (800)</h1>
       <h2 className={styles.headingBold}>NotoSans Bold (700)</h2>
