@@ -1,0 +1,39 @@
+.container {
+  padding: 20px;
+}
+
+.headingBlack {
+  font-weight: 900;
+}
+
+.headingExtraBold {
+  font-weight: 800;
+}
+
+.headingBold {
+  font-weight: 700;
+}
+
+.headingSemiBold {
+  font-weight: 600;
+}
+
+.headingMedium {
+  font-weight: 500;
+}
+
+.headingRegular {
+  font-weight: 400;
+}
+
+.headingLight {
+  font-weight: 300;
+}
+
+.headingExtraLight {
+  font-weight: 200;
+}
+
+.textThin {
+  font-weight: 100;
+}
