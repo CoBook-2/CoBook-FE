@@ -1,39 +1,114 @@
+/* 공통 스타일 */
 .container {
-  padding: 20px;
+  margin-top: 60px; /* 헤더바 높이만큼 마진 추가 */
 }
 
-.headingBlack {
-  font-weight: 900;
+/* 첫 번째 섹션 */
+.mainSection {
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 버튼 위치를 고정하기 위해 사용 */
 }
 
-.headingExtraBold {
-  font-weight: 800;
+.mainText {
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+  position: absolute;
+  top: 17%; /* 섹션 상단에서 아래로 30% 위치 */
+  left: 200px; /* 왼쪽으로 250px 이동 */
 }
 
-.headingBold {
-  font-weight: 700;
+.mainText h1 {
+  font-size: 72px; /* 이미지처럼 큰 폰트 */
+  font-weight: bold;
+  line-height: 1.2; /* 줄 간격 조정 */
+  margin-bottom: 30px;
 }
 
-.headingSemiBold {
-  font-weight: 600;
-}
-
-.headingMedium {
+.mainText p {
+  font-size: 24px; /* 강조된 텍스트 크기 */
   font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 40px;
 }
 
-.headingRegular {
-  font-weight: 400;
+.highlight {
+  color: #0070f3; /* 강조 색상 */
 }
 
-.headingLight {
-  font-weight: 300;
+.startButton {
+  padding: 12px 24px;
+  background-color: #0070f3;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  bottom: 20%; /* 버튼을 섹션의 하단에 위치 */
 }
 
-.headingExtraLight {
-  font-weight: 200;
+.startButton:hover {
+  background-color: #005bb5;
 }
 
-.textThin {
-  font-weight: 100;
+/* 두 번째 섹션 */
+.programIntroductionSection {
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.programIntroductionSection h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.programIntroductionSection p {
+  font-size: 18px;
+  color: #6c757d;
+}
+
+/* 세 번째 섹션 */
+.imageProtoTypeSection {
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageProtoTypeSection h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.imageProtoTypeSection p {
+  font-size: 18px;
+  color: #6c757d;
+}
+
+/* 네 번째 섹션 */
+.footerSection {
+  height: 33.33vh; /* 전체 높이의 1/3 */
+  background-color: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerSection h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footerSection p {
+  font-size: 16px;
+  color: #6c757d;
 }

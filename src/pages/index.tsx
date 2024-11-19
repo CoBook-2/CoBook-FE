@@ -1,27 +1,63 @@
-import React from "react";
+import HomeHeaderBar from "@/components/homeHeaderBar";
 import styles from "./index.module.css";
+import { useState } from "react";
+import LoginRequestModal from "./modal/login/loginRequestModal";
 
-const HomePage: React.FC = () => {
+export default function Home(): JSX.Element {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  // 로그인 모달 열기
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
+  };
+
+  // 로그인 모달 닫기
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
   return (
-    <div className={styles.container}>
-      <h1 className={styles.headingBlack}>홈페이지</h1>
-      <h1 className={styles.headingBlack}>NotoSans Black (900)</h1>
-      <h1 className={styles.headingExtraBold}>NotoSans ExtraBold (800)</h1>
-      <h2 className={styles.headingBold}>NotoSans Bold (700)</h2>
-      <h2 className={styles.headingSemiBold}>NotoSans SemiBold (600)</h2>
-      <h3 className={styles.headingMedium}>NotoSans Medium (500)</h3>
-      <h4 className={styles.headingRegular}>NotoSans Regular (400)</h4>
-      <h5 className={styles.headingLight}>NotoSans Light (300)</h5>
-      <h6 className={styles.headingExtraLight}>NotoSans ExtraLight (200)</h6>
-      <p className={styles.textThin}>
-        NotoSans Thin (100) 폰트가 적용된 예시 텍스트입니다.
-      </p>
-      <p>
-        기본 폰트 설정으로 표시되는 텍스트입니다. 폰트 웨이트를 지정하지
-        않았습니다.
-      </p>
-    </div>
-  );
-};
+    <>
+      <HomeHeaderBar />
+      <div className={styles.container}>
+        {/* 첫 번째 컨테이너 */}
+        <section className={styles.mainSection}>
+          <div className={styles.mainText}>
+            <h1>
+              예산관리를
+              <br />
+              <span className={styles.highlight}>빠르고</span>
+              <br />
+              쉽게.
+            </h1>
+            <p>사진 한 장으로 예산 관리 끝.</p>
+          </div>
+          <button className={styles.startButton} onClick={openLoginModal}>
+            예산관리 시작하기
+          </button>
+        </section>
 
-export default HomePage;
+        {/* 두 번째 컨테이너 */}
+        <section className={styles.programIntroductionSection}>
+          <h2>두 번째 섹션</h2>
+          <p>이 섹션은 홈페이지의 중간 내용입니다.</p>
+        </section>
+
+        {/* 세 번째 컨테이너 */}
+        <section className={styles.imageProtoTypeSection}>
+          <h2>세 번째 섹션</h2>
+          <p>이 섹션은 홈페이지의 마지막 내용입니다.</p>
+        </section>
+
+        {/* 네 번째 컨테이너 */}
+        <section className={styles.footerSection}>
+          <h3>네 번째 섹션</h3>
+          <p>이 섹션은 전체 페이지의 마지막 부분입니다.</p>
+        </section>
+      </div>
+
+      {/* 로그인 모달 */}
+      {isLoginModalOpen && <LoginRequestModal onClose={closeLoginModal} />}
+    </>
+  );
+}
