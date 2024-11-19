@@ -1,10 +1,11 @@
 import HomeHeaderBar from "@/components/homeHeaderBar";
 import styles from "./index.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LoginRequestModal from "./modal/login/loginRequestModal";
 
 export default function Home(): JSX.Element {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [showMainText, setShowMainText] = useState(false);
 
   // 로그인 모달 열기
   const openLoginModal = () => {
@@ -16,13 +17,26 @@ export default function Home(): JSX.Element {
     setIsLoginModalOpen(false);
   };
 
+  // 텍스트와 화살표 애니메이션 타이밍 설정
+  useEffect(() => {
+    const textTimer = setTimeout(() => setShowMainText(true), 200);
+
+    return () => {
+      clearTimeout(textTimer);
+    };
+  }, []);
+
   return (
     <>
       <HomeHeaderBar />
       <div className={styles.container}>
         {/* 첫 번째 컨테이너 */}
         <section className={styles.mainSection}>
-          <div className={styles.mainText}>
+          <div
+            className={`${styles.mainText} ${
+              showMainText ? styles.visible : ""
+            }`}
+          >
             <h1>
               예산관리를
               <br />
@@ -51,8 +65,28 @@ export default function Home(): JSX.Element {
 
         {/* 네 번째 컨테이너 */}
         <section className={styles.footerSection}>
-          <h3>네 번째 섹션</h3>
-          <p>이 섹션은 전체 페이지의 마지막 부분입니다.</p>
+          <div className={styles.footerContent}>
+            <div className={styles.footerTop}>
+              <p>팀 Cobook</p>
+              <p>대표 이메일 : lhb0126@kyonggi.ac.kr | 대표 : 이하빈</p>
+              <p>
+                개발 지원 : 경기대학교 소프트웨어중심대학사업단 | 팀원 : 유윤정
+                이은수 이하빈 정지용 조참솔
+              </p>
+              <p>
+                팀 GitHub 주소 :{" "}
+                <a
+                  href="https://github.com/CoBook-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.footerLink}
+                >
+                  https://github.com/CoBook-2
+                </a>
+              </p>
+              <p>Copyright @Team Cobook All right reserved.</p>
+            </div>
+          </div>
         </section>
       </div>
 
