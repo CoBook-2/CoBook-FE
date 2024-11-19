@@ -1,15 +1,14 @@
 :root {
-  --font-noto-sans-kr: 'Noto Sans KR', sans-serif;
+  --font-pretendard: 'Pretendard', sans-serif;
 }
 
 body {
-  font-family: var(--font-noto-sans-kr), sans-serif;
+  font-family: var(--font-pretendard), sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 모든 요소에 기본 폰트 적용 */
 * {
-  font-family: var(--font-noto-sans-kr), sans-serif;
+  font-family: var(--font-pretendard), sans-serif;
 }
