@@ -9,7 +9,6 @@ export default function JoinSpaceLayout({ spaces }: { spaces: Space[] }) {
   const handleClick = (title: string) => {
     // 추가적인 로직을 여기에 작성 (예: 페이지 이동, API 호출 등)
   };
-
   return (
     <div>
       <ul className={styles.list}>

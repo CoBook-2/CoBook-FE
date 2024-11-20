@@ -21,7 +21,7 @@
   }
   
   .title {
-    font-size: 15px;
+    font-size: 14px;
     font-family: var(--font-pretendard), sans-serif; /* 변수로 설정된 폰트 사용 */
     font-weight: 900;
     margin-bottom: 8px;
@@ -36,7 +36,7 @@
   
   .tag {
     font-family: var(--font-pretendard), sans-serif; /* 변수로 설정된 폰트 사용 */
-    font-size: 12px;
+    font-size: 11px;
     color: #A4A4A4;
     font-weight: 800;
   }

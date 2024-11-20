@@ -4,7 +4,7 @@
   }
   
   .sidebar {
-    width: 250px;
+    width: 200px;
     background-color: #EDEDED;
     padding: 20px;
     display: flex;
@@ -20,7 +20,7 @@
   .spaceTitle {
     font-family: var(--font-pretendard), sans-serif;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 20px; /* 아래 요소와의 간격 설정 */
   }
   
