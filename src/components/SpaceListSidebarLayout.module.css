@@ -1,0 +1,26 @@
+.layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #EDEDED;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 상위 요소 내부의 간격 */
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  /* 폰트 변수 사용 */
+  .spaceTitle {
+    font-family: var(--font-pretendard), sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 20px; /* 아래 요소와의 간격 설정 */
+  }
+  
