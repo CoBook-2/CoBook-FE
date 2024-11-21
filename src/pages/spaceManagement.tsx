@@ -1,54 +1,42 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
 import HeaderNavbarLayout from "@/components/HeaderNavbarLayout";
 import SpaceListSidebarLayout from "@/components/SpaceListSidebarLayout";
+import AskEnterModal from "@/pages/modal/enterSpace/askEnterModal";
 import styles from "./spaceManagement.module.css";
-import { ReactNode } from "react";
 
 export default function SpaceManagementPage() {
   const { user } = useAuth();
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (!user) {
-      // 사용자가 로그인하지 않았다면 홈 페이지로 이동
       router.push("/");
     }
   }, [user, router]);
 
   if (!user) {
-    return null; // 사용자가 없을 경우 아무것도 렌더링하지 않음
+    return null;
   }
 
+  // 모달 열기/닫기 함수
+  const closeModal = () => setIsModalOpen(false);
+
   return (
-    <div className={styles.container}>
-      <h1>{user.id}님의 참여 스페이스 목록</h1>
-      <ul className={styles.spaceList}>
-        {user.participatingSpaces.map((space) => (
-          <li key={space.name} className={styles.spaceItem}>
-            <h2>{space.name}</h2>
-            <div className={styles.tags}>
-              {space.tags.map((tag) => (
-                <span key={tag} className={styles.tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className={`${styles.pageLayout} ${isModalOpen ? styles.dimmed : ""}`}>
+      <SpaceListSidebarLayout>
+        <div className={styles.mainSection}>
+          <HeaderNavbarLayout isModalOpen={isModalOpen} />
+          <div className={styles.contentContainer}>
+            <h1>검색창 등 추가 패치 예정</h1>
+          </div>
+        </div>
+        {isModalOpen && (
+          <AskEnterModal spaceName="스페이스 이름" onClose={closeModal} />
+        )}
+      </SpaceListSidebarLayout>
     </div>
   );
 }
-
-SpaceManagementPage.getLayout = (page: ReactNode) => {
-  return (
-    <SpaceListSidebarLayout>
-      <div>
-        <HeaderNavbarLayout /> {/* 여기에서만 HeaderNavbarLayout을 추가 */}
-        {page}
-      </div>
-    </SpaceListSidebarLayout>
-  );
-};

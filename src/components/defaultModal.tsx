@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "./DefaultModal.module.css";
+import styles from "./defaultModal.module.css";
 import { IoClose } from "react-icons/io5";
 
 interface Props {
@@ -26,6 +26,7 @@ export default function DefaultModal({
 
   return (
     <div className={styles.modalBackdrop} onClick={handleBackdropClick}>
+      {/* 모달 본체를 클릭했을 때 이벤트가 전파되지 않도록 stopPropagation 사용 */}
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <button type="button" className={styles.closeButton} onClick={onClose}>
           <IoClose size={24} />

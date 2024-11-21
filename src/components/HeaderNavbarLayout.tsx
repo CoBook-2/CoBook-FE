@@ -1,8 +1,14 @@
 import style from "./HeaderNavbarLayout.module.css";
 
-export default function HeaderNavbarLayout() {
+interface HeaderNavbarLayoutProps {
+  isModalOpen: boolean;
+}
+
+export default function HeaderNavbarLayout({
+  isModalOpen,
+}: HeaderNavbarLayoutProps) {
   return (
-    <div className={style.header}>
+    <div className={`${style.header} ${isModalOpen ? style.modalOpen : ""}`}>
       <div className={style.controls}>
         <div className={style.search}>
           <button>

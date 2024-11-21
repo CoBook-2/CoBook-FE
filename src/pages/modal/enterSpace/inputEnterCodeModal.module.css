@@ -1,0 +1,54 @@
+.container {
+  text-align: center; /* 전체 컨테이너 안에 있는 요소들을 중앙 정렬 */
+}
+
+.h2 {
+  margin: 20px 0;
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirmButton {
+  background-color: #0658f6;
+  color: white;
+  border: none;
+  font-size: 16px; /* 버튼 텍스트 크기 증가 */
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmButton:hover {
+  background-color: #054bb5;
+}
+
+.cancelButton {
+  background-color: #e0e0e0;
+  color: #333333;
+  border: none;
+  font-size: 16px; /* 버튼 텍스트 크기 증가 */
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #c0c0c0;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #4b5563;
+  outline: none;
+  margin-top: 12px;
+  margin-left: -12px;
+}

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import styles from "./JoinSpaceLayout.module.css";
 import AskEnterModal from "@/pages/modal/enterSpace/askEnterModal";
+import InputEnterCodeModal from "@/pages/modal/enterSpace/inputEnterCodeModal";
+
 
 interface Space {
   name: string;
   tags: string[];
+  spaceId: string; // spaceId 추가
+  enterCode?: string;
 }
 
 interface JoinSpaceLayoutProps {
@@ -12,12 +16,15 @@ interface JoinSpaceLayoutProps {
 }
 
 export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
-  const [selectedSpace, setSelectedSpace] = useState<string | null>(null);
+  const [selectedSpace, setSelectedSpace] = useState<Space | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const handleClick = (spaceName: string) => {
-    setSelectedSpace(spaceName);
-    setIsModalOpen(true);
+  const handleClick = (spaceId: string) => {
+    const foundSpace = spaces.find((space) => space.spaceId === spaceId);
+    if (foundSpace) {
+      setSelectedSpace(foundSpace);
+      setIsModalOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -29,12 +36,12 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
     <div className={styles.container}>
       <ul className={styles.list}>
         {spaces.map((space) => (
-          <li key={space.name} className={styles.listItem}>
+          <li key={space.spaceId} className={styles.listItem}>
             <button
               className={`${styles.spaceButton} ${
-                selectedSpace === space.name ? styles.selected : ""
+                selectedSpace?.spaceId === space.spaceId ? styles.selected : ""
               }`}
-              onClick={() => handleClick(space.name)}
+              onClick={() => handleClick(space.spaceId)}
               aria-label={`Join space ${space.name}`}
             >
               <div className={styles.spaceContainer}>
@@ -53,9 +60,16 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
       </ul>
 
       {/* 모달 컴포넌트 */}
-      {isModalOpen && selectedSpace && (
-        <AskEnterModal spaceName={selectedSpace} onClose={closeModal} />
-      )}
+      {isModalOpen &&
+        selectedSpace &&
+        (selectedSpace.enterCode ? (
+          <InputEnterCodeModal
+            spaceName={selectedSpace.name}
+            onClose={closeModal}
+          />
+        ) : (
+          <AskEnterModal spaceName={selectedSpace.name} onClose={closeModal} />
+        ))}
     </div>
   );
 }

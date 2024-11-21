@@ -1,5 +1,14 @@
+.container {
+  text-align: center; /* 전체 컨테이너 안에 있는 요소들을 중앙 정렬 */
+}
+
+.h2 {
+  margin: 20px 0;
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
 .buttons {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-around;
 }
@@ -8,7 +17,8 @@
   background-color: #0658f6;
   color: white;
   border: none;
-  padding: 10px 20px;
+  font-size: 16px; /* 버튼 텍스트 크기 증가 */
+  padding: 15px 30px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -21,7 +31,8 @@
   background-color: #e0e0e0;
   color: #333333;
   border: none;
-  padding: 10px 20px;
+  font-size: 16px; /* 버튼 텍스트 크기 증가 */
+  padding: 15px 30px;
   border-radius: 5px;
   cursor: pointer;
 }

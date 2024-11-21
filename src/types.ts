@@ -1,6 +1,8 @@
 export interface Space {
-  name: string; // users.ts에서 사용하는 속성명에 맞춰 'name'으로 수정
+  name: string;
   tags: string[];
+  spaceId: string; // spaceId 속성 추가
+  enterCode: string; // 참가 코드 속성도 포함
 }
 
 export interface User {
