@@ -38,9 +38,9 @@ export default function Home(): JSX.Element {
             }`}
           >
             <h1>
-              예산관리를
+              <span className={styles.highlight}>예산관리</span>를
               <br />
-              <span className={styles.highlight}>빠르고</span>
+              빠르고
               <br />
               쉽게.
             </h1>

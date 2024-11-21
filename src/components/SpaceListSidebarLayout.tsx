@@ -21,9 +21,8 @@ export default function SpaceListSidebarLayout({
           <Image
             src="/CoBook Logo(nonBackground).png"
             alt="CoBook Logo"
-            width={120}
+            width={100}
             height={40}
-            className={styles.logo}
           />
         </Link>
         <div>

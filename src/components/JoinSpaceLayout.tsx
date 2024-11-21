@@ -2,23 +2,17 @@ import React, { useState } from "react";
 import styles from "./JoinSpaceLayout.module.css";
 import AskEnterModal from "@/pages/modal/enterSpace/askEnterModal";
 import InputEnterCodeModal from "@/pages/modal/enterSpace/inputEnterCodeModal";
-
-
-interface Space {
-  name: string;
-  tags: string[];
-  spaceId: string; // spaceId 추가
-  enterCode?: string;
-}
+import { Space } from "@/types"; // 올바른 타입 가져오기
 
 interface JoinSpaceLayoutProps {
-  spaces: Space[];
+  spaces: Space[];  // spaces는 Space[] 타입
 }
 
 export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
   const [selectedSpace, setSelectedSpace] = useState<Space | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  // 스페이스 클릭 처리 함수
   const handleClick = (spaceId: string) => {
     const foundSpace = spaces.find((space) => space.spaceId === spaceId);
     if (foundSpace) {
@@ -34,30 +28,34 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
 
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
-        {spaces.map((space) => (
-          <li key={space.spaceId} className={styles.listItem}>
-            <button
-              className={`${styles.spaceButton} ${
-                selectedSpace?.spaceId === space.spaceId ? styles.selected : ""
-              }`}
-              onClick={() => handleClick(space.spaceId)}
-              aria-label={`Join space ${space.name}`}
-            >
-              <div className={styles.spaceContainer}>
-                <div className={styles.title}>{space.name}</div>
-                <div className={styles.tagContainer}>
-                  {space.tags.map((tag) => (
-                    <span key={tag} className={styles.tag}>
-                      {tag}
-                    </span>
-                  ))}
+      {spaces.length === 0 ? (
+        <p>참여한 스페이스가 없습니다.</p>
+      ) : (
+        <ul className={styles.list}>
+          {spaces.map((space) => (
+            <li key={space.spaceId}>
+              <button
+                className={`${styles.spaceButton} ${
+                  selectedSpace?.spaceId === space.spaceId ? styles.selected : ""
+                }`}
+                onClick={() => handleClick(space.spaceId)}
+                aria-label={`Join space ${space.name}`}
+              >
+                <div className={styles.spaceContainer}>
+                  <div className={styles.title}>{space.name}</div>
+                  <div className={styles.tagContainer}>
+                    {space.tags.map((tag) => (
+                      <span key={tag} className={styles.tag}>
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </button>
-          </li>
-        ))}
-      </ul>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* 모달 컴포넌트 */}
       {isModalOpen &&
@@ -66,9 +64,14 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
           <InputEnterCodeModal
             spaceName={selectedSpace.name}
             onClose={closeModal}
+            spaceId={selectedSpace.spaceId} // spaceId 전달
+            enterCode={selectedSpace.enterCode} // enterCode 전달
           />
         ) : (
-          <AskEnterModal spaceName={selectedSpace.name} onClose={closeModal} />
+          <AskEnterModal
+            spaceName={selectedSpace.name}
+            onClose={closeModal}
+          />
         ))}
     </div>
   );

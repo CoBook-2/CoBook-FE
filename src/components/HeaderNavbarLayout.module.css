@@ -1,19 +1,10 @@
-/* src/components/HeaderNavbarLayout.module.css */
-
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin-left: 250px;
-  width: 82%;
-  height: 60px; /* 네비게이션 바 높이 */
   background-color: #f8f8f8;
   display: flex;
   justify-content: space-between; /* 양쪽 끝으로 정렬 */
   align-items: center; /* 수직 정렬 */
-  padding: 0 20px; /* 좌우 여백 */
+  padding: 10px 15px; /* 내부 여백 */
   border-bottom: 1px solid #ebebeb; /* 아래쪽 경계선 */
-  transition: background-color 0.3s ease; /* 배경색 전환 시 부드럽게 */
 }
 
 .controls {
@@ -40,7 +31,7 @@
 
 .search button:hover,
 .actions button:hover {
-  background-color: #ebebeb; /* 호버 상태 */
+  background-color: #EDEDED; /* 호버 상태 */
 }
 
 .search button img,
@@ -69,8 +60,4 @@
 .icons img[src="/user.png"] {
   width: 30px; /* user.png 크기 조정 */
   height: 30px; /* user.png 크기 조정 */
-}
-
-.modalOpen {
-    background-color: rgba(0, 0, 0, 0.5); /* 모달이 열렸을 때 어두운 배경색 */
 }

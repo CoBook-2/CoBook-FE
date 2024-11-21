@@ -4,11 +4,9 @@ interface HeaderNavbarLayoutProps {
   isModalOpen: boolean;
 }
 
-export default function HeaderNavbarLayout({
-  isModalOpen,
-}: HeaderNavbarLayoutProps) {
+export default function HeaderNavbarLayout() {
   return (
-    <div className={`${style.header} ${isModalOpen ? style.modalOpen : ""}`}>
+    <div className={`${style.header} `}>
       <div className={style.controls}>
         <div className={style.search}>
           <button>

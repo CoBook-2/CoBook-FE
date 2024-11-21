@@ -1,15 +1,7 @@
-.container {
-  padding: 10px;
-}
-
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.listItem {
-  margin-bottom: 15px;
 }
 
 .spaceButton {
@@ -26,8 +18,8 @@
   outline: none; /* 기존 파란색 테두리 제거 */
 }
 
-.spaceButton:hover .spaceContainer {
-  background-color: #e2e2e2;
+.spaceContainer:hover {
+  background-color: #E2E2E2;
   transform: scale(1.02);
 }
 
@@ -36,17 +28,15 @@
 }
 
 .spaceContainer {
-  display: flex;
-  flex-direction: column;
   padding: 16px;
-  border: 1px solid #d1d5db; /* 기존 테두리 */
   border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .title {
   font-size: 14px;
-  font-family: var(--font-pretendard), sans-serif;
-  font-weight: 900;
+  font-weight: 800;
   margin-bottom: 8px;
   color: #424242;
 }
@@ -58,8 +48,11 @@
 }
 
 .tag {
-  font-family: var(--font-pretendard), sans-serif;
   font-size: 11px;
-  color: #0658f6; /* 태그 색상 */
+  color: #A4A4A4;
   font-weight: 800;
+}
+
+.spaceContainer:hover .tag {
+  color: #0658F6; /* hover 시 태그 색상 변경 */
 }
