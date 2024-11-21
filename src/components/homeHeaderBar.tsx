@@ -24,7 +24,7 @@ export default function HomeHeaderBar(): JSX.Element {
     <header className={styles.header}>
       <div className={styles.logoContainer}>
         <Image
-          src="/CoBook Logo(nonBackground).svg"
+          src="/CoBook Logo(nonBackground).png"
           alt="CoBook(nonBackground) Logo"
           width={120}
           height={40}

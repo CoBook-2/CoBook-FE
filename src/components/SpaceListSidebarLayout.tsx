@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from "react";
 import style from "./SpaceListSidebarLayout.module.css";
 import Link from "next/link";
 import JoinSpaceLayout from "./JoinSpaceLayout";
+import Image from "next/image";
 
 interface Space {
   title: string;
@@ -32,7 +33,7 @@ export default function SpaceListSidebarLayout({
     <div className={style.layout}>
       <div className={style.sidebar}>
         <Link href="/spaceManagement">
-          <img
+          <Image
             src="/CoBook Logo(nonBackground).png"
             alt="CoBook Logo"
             style={{ maxWidth: "100px" }}
