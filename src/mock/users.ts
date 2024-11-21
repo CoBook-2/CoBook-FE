@@ -1,13 +1,4 @@
-interface Space {
-  name: string;
-  tags: string[];
-}
-
-interface User {
-  id: string;
-  password: string;
-  participatingSpaces: Space[];
-}
+import { User } from "@/types";
 
 export const users: User[] = [
   {

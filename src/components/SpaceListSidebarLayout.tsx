@@ -1,51 +1,37 @@
-import React, { ReactNode, useState } from "react";
-import style from "./SpaceListSidebarLayout.module.css";
+import React, { ReactNode } from "react";
+import styles from "./SpaceListSidebarLayout.module.css";
 import Link from "next/link";
 import JoinSpaceLayout from "./JoinSpaceLayout";
-
-interface Space {
-  title: string;
-  tags: string[];
-}
+import { users } from "@/mock/users";
+import { User } from "@/types";
+import Image from "next/image";
 
 export default function SpaceListSidebarLayout({
   children,
 }: {
   children: ReactNode;
 }) {
-  const [spaces] = useState<Space[]>([
-    {
-      title: "2024 경기대 학생회",
-      tags: ["경기대", "2024", "학생회", "거북이"],
-    },
-    {
-      title: "2024 강서 FC",
-      tags: ["강서구", "축구", "동호회", "우장산"],
-    },
-    {
-      title: "안산 산악 동호회",
-      tags: ["안산", "산악회", "동호회"],
-    },
-  ]);
+  // 현재 사용자를 지정 (예: 첫 번째 사용자)
+  const currentUser: User = users[0];
 
   return (
-    <div className={style.layout}>
-      <div className={style.sidebar}>
+    <div className={styles.layout}>
+      <div className={styles.sidebar}>
         <Link href="/spaceManagement">
-          <img
+          <Image
             src="/CoBook Logo(nonBackground).png"
             alt="CoBook Logo"
-            style={{ maxWidth: "100px" }}
+            width={120}
+            height={40}
+            className={styles.logo}
           />
         </Link>
         <div>
-          <div className={style.spaceTitle}>참여 스페이스 목록</div>
-          <div>
-            <JoinSpaceLayout spaces={spaces} />
-          </div>
+          <div className={styles.spaceTitle}>참여 스페이스 목록</div>
+          <JoinSpaceLayout spaces={currentUser.participatingSpaces} />
         </div>
       </div>
-      <div className={style.content}>{children}</div>
+      <div className={styles.content}>{children}</div>
     </div>
   );
 }

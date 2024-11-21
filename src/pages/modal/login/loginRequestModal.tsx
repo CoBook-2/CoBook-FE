@@ -134,14 +134,14 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
           </Link>
         </div>
         <button type="submit" className={styles.primaryButton}>
-          Continue
+          로그인
         </button>
       </form>
       <div className={styles.signUpWrapper}>
-        Don&apos;t have an account?
+        아직 계정이 없으신가요?
         <Link href="/signup" className={styles.link}>
           {" "}
-          Sign up
+          회원가입
         </Link>
       </div>
     </DefaultModal>

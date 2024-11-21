@@ -1,26 +1,37 @@
+/* src/components/SpaceListSidebarLayout.module.css */
+
 .layout {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #EDEDED;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* 상위 요소 내부의 간격 */
-  }
-  
-  .content {
-    flex: 1;
-  }
-  
-  /* 폰트 변수 사용 */
-  .spaceTitle {
-    font-family: var(--font-pretendard), sans-serif;
-    font-weight: 900;
-    font-size: 15px;
-    margin-bottom: 20px; /* 아래 요소와의 간격 설정 */
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px; /* 사이드바의 고정 너비 */
+  background-color: #EDEDED;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 상위 요소 내부의 간격 */
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.spaceTitle {
+  font-family: var(--font-pretendard), sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  margin-bottom: 20px; /* 아래 요소와의 간격 설정 */
+  margin-left: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}

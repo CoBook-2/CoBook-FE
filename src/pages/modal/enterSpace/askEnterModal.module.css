@@ -1,0 +1,31 @@
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirmButton {
+  background-color: #0658f6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmButton:hover {
+  background-color: #054bb5;
+}
+
+.cancelButton {
+  background-color: #e0e0e0;
+  color: #333333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #c0c0c0;
+}
