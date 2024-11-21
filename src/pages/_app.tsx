@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import { ReactNode } from "react";
+import { AuthProvider } from "@/context/AuthContext"; // AuthProvider 임포트
 
 const pretendard = localFont({
   src: [
@@ -68,8 +69,12 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
 
   return (
-    <div className={pretendard.className}>
-      {getLayout(<Component {...pageProps} />)}
-    </div>
+    <AuthProvider>
+      {" "}
+      {/* AuthProvider로 애플리케이션 래핑 */}
+      <div className={pretendard.className}>
+        {getLayout(<Component {...pageProps} />)}
+      </div>
+    </AuthProvider>
   );
 }
