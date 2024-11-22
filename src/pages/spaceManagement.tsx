@@ -10,6 +10,22 @@ export default function SpaceManagementPage() {
   const router = useRouter();
   //useAuth로 받아오는 유저 정보가 초기화 되지 않고 계속 남아있는 현상이 발견되어 일단 useEffect 삭제 처리(main branch랑 비교해서 수정해볼 예정)
 
+  useEffect(() => {
+    if (user === null) {
+      router.push("/");
+    }
+  }, [user, router]);
+
+  if (user === undefined) {
+    // 사용자 정보를 아직 로드 중인 상태이므로 로딩 화면을 표시합니다.
+    return <div>로딩 중...</div>;
+  }
+
+  if (user === null) {
+    // 로그인되지 않은 상태이며, 이미 useEffect에서 리디렉션을 처리하므로 null을 반환합니다.
+    return null;
+  }
+
   return (
     <div>
       검색창 등 추가 패치 예정
