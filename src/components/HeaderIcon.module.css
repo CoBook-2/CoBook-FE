@@ -1,0 +1,21 @@
+.icons {
+    display: flex; /* 아이콘을 가로로 배치 */
+    align-items: center; /* 수직 정렬 */
+    gap: 10px; /* 아이콘 간격 */
+  }
+  
+  .icons img {
+    width: 24px; /* 아이콘 기본 크기 */
+    height: 24px; /* 아이콘 기본 크기 */
+    cursor: pointer; /* 클릭 가능한 포인터 */
+  }
+  
+  .icons img:hover {
+    opacity: 0.8; /* 호버 시 약간 투명하게 */
+  }
+  
+  /* user.png 이미지만 크기 조정 */
+  .icons img[src="/user.png"] {
+    width: 30px; /* user.png 크기 조정 */
+    height: 30px; /* user.png 크기 조정 */
+  }

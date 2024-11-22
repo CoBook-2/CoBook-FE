@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./JoinSpaceLayout.module.css";
-import { Space as SpaceType } from "@/types"; // 타입 이름 변경
+import { Space as SpaceType } from "@/types";
 import { useRouter } from "next/router";
+import { useSpaceContext } from "@/context/SpaceContext";
 
 interface JoinSpaceLayoutProps {
   spaces: SpaceType[];
@@ -9,11 +10,12 @@ interface JoinSpaceLayoutProps {
 
 export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
   const router = useRouter();
+  const { setSpaceId } = useSpaceContext(); // 전역 상태를 업데이트할 함수 가져오기
 
   // 스페이스 클릭 처리 함수
   const handleClick = (spaceId: string) => {
-    // 모달 없이 바로 해당 스페이스 페이지로 이동
-    router.push(`/spaceMainHome/${spaceId}`);
+    setSpaceId(spaceId); // 전역 상태에 spaceId 저장
+    router.push(`/spaceMainHome/${spaceId}`); // 동적 링크로 이동
   };
 
   return (
