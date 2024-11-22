@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
 import { SiNaver, SiKakao } from "react-icons/si";
 import Link from "next/link";
@@ -36,8 +36,8 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
       const data = await response.json();
 
       if (data.success && data.data) {
-        // AuthContext에 로그인 정보 설정
-        login(data.data.userId, password, data.data.participatingSpaces);
+        // AuthContext에 로그인 정보 설정 (password는 제외)
+        login(data.data.userId, data.data.participatingSpaces);
 
         // 로그인 성공 시 spaceManagement 페이지로 이동
         router.push("/spaceManagement");
@@ -115,11 +115,15 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {error && (
-          <p className={`${styles.errorMessage} ${shake ? styles.shake : ""}`}>
-            {error}
-          </p>
-        )}
+        <div className={styles.errorContainer}>
+          {error && (
+            <p
+              className={`${styles.errorMessage} ${shake ? styles.shake : ""}`}
+            >
+              {error}
+            </p>
+          )}
+        </div>
         <div className={styles.resetPasswordWrapper}>
           <Link href="/findId" className={styles.link}>
             아이디 찾기

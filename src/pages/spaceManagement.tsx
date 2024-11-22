@@ -10,12 +10,18 @@ export default function SpaceManagementPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (user === null) {
       router.push("/");
     }
   }, [user, router]);
 
-  if (!user) {
+  if (user === undefined) {
+    // 사용자 정보를 아직 로드 중인 상태이므로 로딩 화면을 표시합니다.
+    return <div>로딩 중...</div>;
+  }
+
+  if (user === null) {
+    // 로그인되지 않은 상태이며, 이미 useEffect에서 리디렉션을 처리하므로 null을 반환합니다.
     return null;
   }
 

@@ -1,6 +1,6 @@
-import { User } from "@/types";
+import { ServerUser } from "@/types";
 
-export const users: User[] = [
+export const users: ServerUser[] = [
   {
     id: "jjy092801",
     password: "0928",
