@@ -8,7 +8,6 @@ import styles from "./search.module.css";
 export default function spaceSearchPage() {
   const { user } = useAuth();
   const router = useRouter();
-  //useAuth로 받아오는 유저 정보가 초기화 되지 않고 계속 남아있는 현상이 발견되어 일단 useEffect 삭제 처리(main branch랑 비교해서 수정해볼 예정)
 
   useEffect(() => {
     if (user === null) {
@@ -28,7 +27,7 @@ export default function spaceSearchPage() {
 
   return (
     <div>
-      검색창 등 추가 패치 예정
+      <h1>검색창 추가 예정</h1>
     </div>
   );
 }

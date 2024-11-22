@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import styles from "./inputEnterCodeModal.module.css";
 import DefaultModal from "@/components/defaultModal";
 import { useRouter } from "next/router";
-import { users } from "@/mock/users"; // mock 데이터 가져오기
 
 interface InputEnterCodeModalProps {
   spaceName: string;
   spaceId: string;
+  enterCode?: string; // enterCode prop 추가
   onClose: () => void;
 }
 
 export default function InputEnterCodeModal({
   spaceName,
   spaceId,
+  enterCode,
   onClose,
 }: InputEnterCodeModalProps) {
   const [inputCode, setInputCode] = useState("");
@@ -25,26 +26,17 @@ export default function InputEnterCodeModal({
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleConfirmClick(); // Enter 키를 누르면 handleConfirmClick 호출
+      handleConfirmClick();
     }
   };
 
   const handleConfirmClick = () => {
-    // 선택한 스페이스 가져오기
-    const selectedSpace = users
-      .flatMap((user) => user.participatingSpaces)
-      .find((space) => space.spaceId === spaceId);
-
-    if (selectedSpace) {
-      if (inputCode.trim() === selectedSpace.enterCode.trim()) {
-        // 참여 코드가 일치하면 다음 페이지로 이동
-        router.push(`/spaceMainHome/${spaceId}`);
-      } else {
-        // 참여 코드가 일치하지 않으면 에러 메시지 표시
-        setErrorMessage("참여 코드를 다시 입력해주세요.");
-      }
+    if (inputCode.trim() === enterCode?.trim()) {
+      // 참여 코드가 일치하면 다음 페이지로 이동
+      router.push(`/spaceMainHome/${spaceId}`);
     } else {
-      setErrorMessage("스페이스 정보를 찾을 수 없습니다.");
+      // 참여 코드가 일치하지 않으면 에러 메시지 표시
+      setErrorMessage("참여 코드를 다시 입력해주세요.");
     }
   };
 
@@ -61,7 +53,7 @@ export default function InputEnterCodeModal({
           placeholder="참여 코드를 입력해주세요."
           value={inputCode}
           onChange={handleCodeChange}
-          onKeyDown={handleKeyDown} // Enter 키 핸들러 추가
+          onKeyDown={handleKeyDown}
         />
         {errorMessage && (
           <div className={styles.errorMessage}>{errorMessage}</div>
