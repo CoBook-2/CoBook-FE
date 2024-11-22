@@ -2,7 +2,7 @@ export interface Space {
   name: string;
   tags: string[];
   spaceId: string;
-  enterCode: string;
+  enterCode?: string;
 }
 
 // 클라이언트용 User 인터페이스 (password 없음)

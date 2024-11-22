@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Space } from "@/types";
-import { users } from "@/mock/users"; // mock 데이터 가져오기
 
 export default function SpaceMainHomePage() {
   const router = useRouter();
@@ -16,9 +15,14 @@ export default function SpaceMainHomePage() {
       return;
     }
     if (spaceId && typeof spaceId === "string") {
-      const allSpaces = users.flatMap((u) => u.participatingSpaces);
-      const foundSpace = allSpaces.find((s) => s.spaceId === spaceId);
-      setSpace(foundSpace || null);
+      const foundSpace = user.participatingSpaces.find(
+        (s) => s.spaceId === spaceId
+      );
+      if (foundSpace) {
+        setSpace(foundSpace);
+      } else {
+        setSpace(null);
+      }
     }
   }, [spaceId, user, router]);
 
@@ -31,7 +35,7 @@ export default function SpaceMainHomePage() {
       <h1>{space.name}</h1>
       <p>Space ID: {space.spaceId}</p>
       <p>Tags: {space.tags.join(", ")}</p>
-      <p>Enter Code: {space.enterCode}</p>
+      {/* 추가적인 스페이스 정보 표시 */}
     </div>
   );
 }
