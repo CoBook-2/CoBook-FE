@@ -1,14 +1,82 @@
-:root {
-  --font-pretendard: 'Pretendard', sans-serif;
-}
-
-body {
-  font-family: var(--font-pretendard), sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html, body {
+  margin: 0px;
+  padding: 0px;
 }
 
 * {
-  font-family: var(--font-pretendard), sans-serif;
+  font-family: Pretendard;
+}
+
+/* GmarketSans Fonts */
+@font-face {
+  font-family: "GmarketSans";
+  font-weight: 700; /* Bold */
+  src: url("/fonts/GmarketSansTTFBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  font-weight: 400; /* Medium (default) */
+  src: url("/fonts/GmarketSansTTFMedium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  font-weight: 300; /* Light */
+  src: url("/fonts/GmarketSansTTFLight.ttf") format("truetype");
+}
+
+/* Pretendard Fonts */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 900; /* Black */
+  src: url("/fonts/Pretendard-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 800; /* ExtraBold */
+  src: url("/fonts/Pretendard-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700; /* Bold */
+  src: url("/fonts/Pretendard-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600; /* SemiBold */
+  src: url("/fonts/Pretendard-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500; /* Medium */
+  src: url("/fonts/Pretendard-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400; /* Regular */
+  src: url("/fonts/Pretendard-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300; /* Light */
+  src: url("/fonts/Pretendard-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 200; /* ExtraLight */
+  src: url("/fonts/Pretendard-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100; /* Thin */
+  src: url("/fonts/Pretendard-Thin.woff2") format("woff2");
 }

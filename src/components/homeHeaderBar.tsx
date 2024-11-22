@@ -4,6 +4,7 @@ import styles from "./homeHeaderBar.module.css";
 import Image from "next/image";
 import LoginRequestModal from "@/pages/modal/login/loginRequestModal";
 
+
 export default function HomeHeaderBar(): JSX.Element {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const router = useRouter(); // useRouter 훅 추가
@@ -22,20 +23,17 @@ export default function HomeHeaderBar(): JSX.Element {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logoContainer}>
-        <Image
+      <Image
           src="/CoBook Logo(nonBackground).png"
           alt="CoBook(nonBackground) Logo"
-          width={120}
+          width={100}
           height={40}
-          className={styles.logo}
-        />
-      </div>
+      />
       <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={openLoginModal}>
+        <button className={styles.button_login} onClick={openLoginModal}>
           로그인
         </button>
-        <button className={styles.button} onClick={navigateToSignup}>
+        <button className={`${styles.button_signup}`} onClick={navigateToSignup}>
           회원가입
         </button>
       </div>

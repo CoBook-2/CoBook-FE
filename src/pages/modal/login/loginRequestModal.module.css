@@ -6,7 +6,7 @@
   margin-bottom: 12px;
   font-size: 20px;
   font-weight: 600;
-  color: #005bb5;
+  color: #000000;
 }
 
 .subtitle {
@@ -40,7 +40,7 @@
 }
 
 .socialButton:hover {
-  background-color: #005bb5;
+  background-color: #686868;
   color: #ffffff;
 }
 
@@ -126,18 +126,18 @@
 }
 
 .link {
-  color: #2563eb;
+  color: #6b7280;
   text-decoration: none;
 }
 
 .link:hover {
-  text-decoration: underline;
+  color: #0658F6;
 }
 
 .primaryButton {
   width: 100%;
   padding: 12px;
-  background-color: #000000;
+  background-color: #0658F6;
   color: #ffffff;
   font-size: 14px;
   font-weight: 500;
@@ -148,7 +148,7 @@
 }
 
 .primaryButton:hover {
-  background-color: #333333; /* 호버 시 변경될 배경색 */
+  background-color: #0152af; /* 호버 시 변경될 배경색 */
 }
 
 .signUpWrapper {
