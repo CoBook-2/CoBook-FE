@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
 import { SiNaver, SiKakao } from "react-icons/si";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
       const data = await response.json();
 
       if (data.success && data.data) {
-        // AuthContext에 로그인 정보 설정
+        // AuthContext에 로그인 정보 설정 (password는 제외)
         login(data.data.userId, data.data.participatingSpaces);
 
         // 로그인 성공 시 spaceManagement 페이지로 이동

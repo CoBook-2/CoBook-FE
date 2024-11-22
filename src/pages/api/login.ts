@@ -1,15 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { users } from "@/mock/users";
+import { Space } from "@/types";
 
 interface LoginResponse {
   success: boolean;
   message: string;
   data?: {
     userId: string;
-    participatingSpaces: {
-      name: string;
-      tags: string[];
-    }[];
+    participatingSpaces: Space[];
   };
 }
 
@@ -47,7 +45,7 @@ export default function handler(
     message: "로그인에 성공했습니다.",
     data: {
       userId: user.id,
-      participatingSpaces: user.participatingSpaces,
+      participatingSpaces: user.participatingSpaces, // Space 인터페이스에 맞춤
     },
   });
 }

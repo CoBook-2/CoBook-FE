@@ -52,3 +52,9 @@
   margin-top: 12px;
   margin-left: -12px;
 }
+
+.errorMessage {
+  color: red;
+  margin-top: 20px;
+  font-weight: 700;
+}

@@ -4,6 +4,13 @@ import AskEnterModal from "@/pages/modal/enterSpace/askEnterModal";
 import InputEnterCodeModal from "@/pages/modal/enterSpace/inputEnterCodeModal";
 import { Space } from "@/types"; // 올바른 타입 가져오기
 
+interface Space {
+  name: string;
+  tags: string[];
+  spaceId: string; // spaceId 추가
+  enterCode?: string;
+}
+
 interface JoinSpaceLayoutProps {
   spaces: Space[];  // spaces는 Space[] 타입
 }
@@ -59,6 +66,7 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
         (selectedSpace.enterCode ? (
           <InputEnterCodeModal
             spaceName={selectedSpace.name}
+            spaceId={selectedSpace.spaceId} // spaceId 추가
             onClose={closeModal}
             spaceId={selectedSpace.spaceId} // spaceId 전달
             enterCode={selectedSpace.enterCode} // enterCode 전달
@@ -66,6 +74,7 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
         ) : (
           <AskEnterModal
             spaceName={selectedSpace.name}
+            spaceId={selectedSpace.spaceId} // spaceId 추가
             onClose={closeModal}
           />
         ))}
