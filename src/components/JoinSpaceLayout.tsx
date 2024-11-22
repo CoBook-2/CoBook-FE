@@ -34,14 +34,11 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
         <ul className={styles.list}>
           {spaces.map((space) => (
             <li key={space.spaceId}>
-              <button
-                className={`${styles.spaceButton} ${
+                <div className={`${styles.spaceContainer} ${
                   selectedSpace?.spaceId === space.spaceId ? styles.selected : ""
-                }`}
-                onClick={() => handleClick(space.spaceId)}
+                }`} onClick={() => handleClick(space.spaceId)}
                 aria-label={`Join space ${space.name}`}
-              >
-                <div className={styles.spaceContainer}>
+                >
                   <div className={styles.title}>{space.name}</div>
                   <div className={styles.tagContainer}>
                     {space.tags.map((tag) => (
@@ -51,7 +48,6 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
                     ))}
                   </div>
                 </div>
-              </button>
             </li>
           ))}
         </ul>
