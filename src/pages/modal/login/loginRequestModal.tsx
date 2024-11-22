@@ -37,7 +37,7 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
 
       if (data.success && data.data) {
         // AuthContext에 로그인 정보 설정
-        login(data.data.userId, data.data.participatingSpaces);
+        login(data.data.userId, password, data.data.participatingSpaces);
 
         // 로그인 성공 시 spaceManagement 페이지로 이동
         router.push("/spaceManagement");
@@ -115,15 +115,11 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className={styles.errorContainer}>
-          {error && (
-            <p
-              className={`${styles.errorMessage} ${shake ? styles.shake : ""}`}
-            >
-              {error}
-            </p>
-          )}
-        </div>
+        {error && (
+          <p className={`${styles.errorMessage} ${shake ? styles.shake : ""}`}>
+            {error}
+          </p>
+        )}
         <div className={styles.resetPasswordWrapper}>
           <Link href="/findId" className={styles.link}>
             아이디 찾기

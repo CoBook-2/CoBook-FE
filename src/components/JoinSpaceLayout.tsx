@@ -3,7 +3,6 @@ import styles from "./JoinSpaceLayout.module.css";
 import AskEnterModal from "@/pages/modal/enterSpace/askEnterModal";
 import InputEnterCodeModal from "@/pages/modal/enterSpace/inputEnterCodeModal";
 
-
 interface Space {
   name: string;
   tags: string[];
@@ -65,10 +64,15 @@ export default function JoinSpaceLayout({ spaces }: JoinSpaceLayoutProps) {
         (selectedSpace.enterCode ? (
           <InputEnterCodeModal
             spaceName={selectedSpace.name}
+            spaceId={selectedSpace.spaceId} // spaceId 추가
             onClose={closeModal}
           />
         ) : (
-          <AskEnterModal spaceName={selectedSpace.name} onClose={closeModal} />
+          <AskEnterModal
+            spaceName={selectedSpace.name}
+            spaceId={selectedSpace.spaceId} // spaceId 추가
+            onClose={closeModal}
+          />
         ))}
     </div>
   );

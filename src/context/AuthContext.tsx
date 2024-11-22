@@ -1,18 +1,9 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-
-interface Space {
-  name: string;
-  tags: string[];
-}
-
-interface User {
-  id: string;
-  participatingSpaces: Space[];
-}
+import { User, Space } from "@/types"; // types.ts에서 인터페이스를 가져옵니다.
 
 interface AuthContextType {
   user: User | null;
-  login: (id: string, participatingSpaces: Space[]) => void;
+  login: (id: string, password: string, participatingSpaces: Space[]) => void;
   logout: () => void;
 }
 
@@ -21,11 +12,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = (id: string, participatingSpaces: Space[]) => {
+  const login = (
+    id: string,
+    password: string,
+    participatingSpaces: Space[]
+  ) => {
     console.log("로그인 성공:", id, participatingSpaces); // 디버깅 로그
-    setUser({ id, participatingSpaces });
+    setUser({ id, password, participatingSpaces });
     // 필요시 로컬 스토리지에 사용자 정보 저장
-    // localStorage.setItem('user', JSON.stringify({ id, participatingSpaces }));
+    // localStorage.setItem('user', JSON.stringify({ id, password, participatingSpaces }));
   };
 
   const logout = () => {
