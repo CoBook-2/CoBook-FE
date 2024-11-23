@@ -41,7 +41,9 @@ export default function spaceManagementPage() {
     content = <div>잘못된 요청입니다.</div>;
   }
 
-  return <div className={styles.content}>{content}</div>;
+  return <div className={styles.container}>
+    <div className={styles.content}>{content}</div>
+  </div>;
 }
 
 // 레이아웃 설정

@@ -19,6 +19,7 @@ export const users: ServerUser[] = [
     nickName: "멋쟁이신사",
     id: "jjy092801",
     password: "0928",
+    profileImage: "",
     participatingSpaces: [
       {
         name: "2024 경기대 학생회",
@@ -40,6 +41,51 @@ export const users: ServerUser[] = [
         spaceId: "3",
         enterCode: "",
         ocrResults: [], // 초기 빈 배열
+      },
+    ],
+  },
+  {
+    nickName: "정지용",
+    id: "jjy1234",
+    password: "1234",
+    profileImage: "", // 프로필 이미지
+    participatingSpaces: [
+      {
+        name: "2024 경기대 학생회",
+        tags: ["경기대", "2024", "학생회", "거북이"],
+        spaceId: "1",
+        enterCode: "",
+        ocrResults: [],
+      },
+    ],
+  },
+  {
+    nickName: "유윤정",
+    id: "yyj0310",
+    password: "0310",
+    profileImage: "",
+    participatingSpaces: [
+      {
+        name: "2024 경기대 학생회",
+        tags: ["경기대", "2024", "학생회", "거북이"],
+        spaceId: "1",
+        enterCode: "",
+        ocrResults: [],
+      },
+    ],
+  },
+  {
+    nickName: "조참솔",
+    id: "cho1234",
+    password: "1234",
+    profileImage: "",
+    participatingSpaces: [
+      {
+        name: "2024 경기대 학생회",
+        tags: ["경기대", "2024", "학생회", "거북이"],
+        spaceId: "1",
+        enterCode: "",
+        ocrResults: [],
       },
     ],
   },
