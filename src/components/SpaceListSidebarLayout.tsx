@@ -15,7 +15,7 @@ export default function SpaceListSidebarLayout({
   return (
     <div className={styles.layout}>
       <div className={styles.sidebar}>
-        <Link href="/spaceManagement">
+        <Link href="/spaceManagementPage">
           <Image
             src="/CoBook Logo(nonBackground).png"
             alt="CoBook Logo"

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useSpaceContext } from "@/context/SpaceContext"; // SpaceContext에서 space 정보 가져오기
 
-export default function calendarContents() {
+export default function mainHomeContents() {
     const { user } = useAuth(); // AuthContext에서 user 가져오기
     const { spaceId } = useSpaceContext(); // spaceName도 가져오기
   
@@ -16,7 +16,7 @@ export default function calendarContents() {
   
     return (
       <div>
-        <h1>스페이스 캘린더</h1>
+        <h1>스페이스 메인홈</h1>
         <p><strong>스페이스 ID:</strong> {spaceId}</p>
         <p><strong>현재 사용자 ID:</strong> {user.id}</p>
       </div>

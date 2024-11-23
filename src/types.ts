@@ -35,3 +35,10 @@ export interface OcrResult {
   items: OcrResultItem[]; // 항목 목록
   totalAmount: number; // 총금액
 }
+
+export type Button = {
+  label: string;
+  icon: string;
+  path?: string;
+  action?: () => void;
+};

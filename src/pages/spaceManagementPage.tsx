@@ -3,37 +3,48 @@ import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
 import HeaderNavbarLayout from "@/components/HeaderNavbarLayout";
 import SpaceListSidebarLayout from "@/components/SpaceListSidebarLayout";
-import styles from "./create.module.css";
+import SpaceSearchContents from "@/components/spaceSearchContents";
+import SpaceCreateContents from "@/components/spaceCreateContents";
+import styles from "./spaceManagementPage.module.css";
 
 export default function spaceManagementPage() {
   const { user } = useAuth();
   const router = useRouter();
-  //useAuth로 받아오는 유저 정보가 초기화 되지 않고 계속 남아있는 현상이 발견되어 일단 useEffect 삭제 처리(main branch랑 비교해서 수정해볼 예정)
+  const { type } = router.query; // 전달받은 쿼리 파라미터 (search 또는 create)
 
+  // 로그인되지 않은 경우 홈으로 리디렉션
   useEffect(() => {
     if (user === null) {
-      router.push("/");
+      router.push("/"); // 홈으로 리디렉션
     }
   }, [user, router]);
 
+  // 쿼리 파라미터가 없을 경우 기본값으로 초기화
+  useEffect(() => {
+    if (!type) {
+      router.replace("/spaceManagementPage?type=search");
+    }
+  }, [type, router]);
+
+  // 사용자 정보를 로드 중일 때 표시
   if (user === undefined) {
-    // 사용자 정보를 아직 로드 중인 상태이므로 로딩 화면을 표시합니다.
     return <div>로딩 중...</div>;
   }
 
-  if (user === null) {
-    // 로그인되지 않은 상태이며, 이미 useEffect에서 리디렉션을 처리하므로 null을 반환합니다.
-    return null;
+  // 화면에 렌더링할 콘텐츠 결정
+  let content;
+  if (type === "search") {
+    content = <SpaceSearchContents />;
+  } else if (type === "create") {
+    content = <SpaceCreateContents />;
+  } else {
+    content = <div>잘못된 요청입니다.</div>;
   }
 
-  return (
-    <div>
-      스페이스 검색 및 생성 컴포넌트 띄울 예정
-    </div>
-  );
+  return <div className={styles.content}>{content}</div>;
 }
 
-// 좌측 참여 스페이스 목록 & 상단 헤더 네비게이션바 레이아웃
+// 레이아웃 설정
 spaceManagementPage.getLayout = (page: ReactNode) => {
   return (
     <SpaceListSidebarLayout>

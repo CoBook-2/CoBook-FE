@@ -32,11 +32,10 @@
 }
 
 .activeButton {
-  background-color: #eff7ff; /* 활성화된 버튼의 배경색 */
+  background-color: #F8F8F8; /* 활성화된 버튼의 배경색 */
   color: #363636; /* 활성화된 텍스트 색상 */
   font-weight: bold; /* 활성화된 버튼의 텍스트 굵기 */
-}
-
-.activeLink {
-  pointer-events: none; /* 활성화된 링크 클릭 방지 */
+  border-bottom: 3px solid #0658F6;
+  border-radius: 0;
+  pointer-events: none;
 }
