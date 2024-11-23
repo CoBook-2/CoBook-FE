@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+.spaceContainer {
+  margin-bottom: 10px;
+}
+
 .spaceButton {
   background: none;
   border: none;
@@ -55,4 +59,14 @@
 
 .spaceContainer:hover .tag {
   color: #0658F6; /* hover 시 태그 색상 변경 */
+}
+
+.selected .spaceContainer {
+  border: 2px solid #0658F6; /* 선택 시 테두리 추가 */
+  background-color: #EDEDED;
+  pointer-events: none;
+}
+
+.selected .tag {
+  color: #0658F6; /* 선택된 상태에서 태그 색상 변경 */
 }

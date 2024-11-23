@@ -40,7 +40,7 @@ export default function LoginRequestModal({ onClose }: Props): JSX.Element {
         login(data.data.userId, data.data.participatingSpaces);
 
         // 로그인 성공 시 spaceManagement 페이지로 이동
-        router.push("/spaceManagement/search");
+        router.push("/spaceManagementPage?type=search");
       } else {
         // 로그인 실패 시 오류 메시지 표시 및 애니메이션 트리거
         setError(data.message);

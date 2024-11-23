@@ -20,7 +20,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   // 로그인 함수
   const login = (id: string, participatingSpaces: Space[]) => {
-    const newUser: User = { id, participatingSpaces };
+    const newUser: User = {
+      id, 
+      participatingSpaces,
+      nickName: ""
+    };
     setUser(newUser);
     localStorage.setItem("user", JSON.stringify(newUser)); // 로컬 스토리지에 사용자 정보 저장
   };
