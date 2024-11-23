@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { Space } from "@/types";
 import SpaceListSidebarLayout from "@/components/SpaceListSidebarLayout";
 import SpaceHeaderNavbarLayout from "@/components/SpaceHeaderNavbarLayout";
+import styles from "./[spaceId].module.css";
 
 // Import 각 동작에 맞는 컴포넌트들
 import MainHomeContents from "@/components/mainHomeContents";
@@ -12,6 +13,7 @@ import ChartContents from "@/components/chartContents";
 import CalendarContents from "@/components/calendarContents";
 import NoticeEditContents from "@/components/noticeEditContents";
 import AdministerSpaceContents from "@/components/administerSpaceContents";
+import SpaceMemberList from "@/components/spaceMemberList";
 
 export default function SpacePage() {
   const router = useRouter();
@@ -61,9 +63,12 @@ export default function SpacePage() {
   };
 
   return (
-    <div>
-      {/* 동적 콘텐츠 렌더링 */}
-      {renderContent()}
+    <div className={styles.container}>
+      <div className={styles.content}>
+        {/* 동적 콘텐츠 렌더링 */}
+        {renderContent()}
+      </div>
+      <SpaceMemberList />
     </div>
   );
 }

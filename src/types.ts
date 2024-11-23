@@ -18,6 +18,7 @@ export interface User {
 // 서버용 User 인터페이스 (password 포함)
 export interface ServerUser extends User {
   password: string;
+  profileImage: string; // 프로필 이미지 URL 추가
 }
 
 export interface OcrResultItem {

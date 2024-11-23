@@ -1,0 +1,16 @@
+/* 전체 레이아웃 컨테이너 */
+.container {
+    display: flex;
+    min-height: calc(100vh - 67.2px); /* 최소 높이 설정 */
+    height: auto; /* 높이는 콘텐츠 크기에 맞게 자동으로 조정 */
+    box-sizing: border-box;
+  }
+  
+  /* 동적 콘텐츠 영역 */
+  .content {
+    flex: 1; /* 나머지 공간을 채움 */
+    box-sizing: border-box;
+    padding: 20px;
+    min-height: 0; /* 콘텐츠가 최소 높이를 충족하도록 설정 */
+  }
+  
