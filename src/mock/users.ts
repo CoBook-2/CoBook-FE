@@ -27,6 +27,7 @@ export const users: ServerUser[] = [
         spaceId: "1",
         enterCode: "",
         ocrResults: [mockOcrResult], // 초기 데이터
+        receivedImages: [], // 추가
       },
       {
         name: "2024 강서 FC",
@@ -34,6 +35,7 @@ export const users: ServerUser[] = [
         spaceId: "2",
         enterCode: "1234",
         ocrResults: [], // 초기 빈 배열
+        receivedImages: [], // 추가
       },
       {
         name: "안산 산악 동호회",
@@ -41,6 +43,7 @@ export const users: ServerUser[] = [
         spaceId: "3",
         enterCode: "",
         ocrResults: [], // 초기 빈 배열
+        receivedImages: [], // 추가
       },
     ],
   },
@@ -56,6 +59,7 @@ export const users: ServerUser[] = [
         spaceId: "1",
         enterCode: "",
         ocrResults: [],
+        receivedImages: [], // 추가
       },
     ],
   },
@@ -71,6 +75,7 @@ export const users: ServerUser[] = [
         spaceId: "1",
         enterCode: "",
         ocrResults: [],
+        receivedImages: [], // 추가
       },
     ],
   },
@@ -86,6 +91,7 @@ export const users: ServerUser[] = [
         spaceId: "1",
         enterCode: "",
         ocrResults: [],
+        receivedImages: [], // 추가
       },
     ],
   },

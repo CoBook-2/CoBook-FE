@@ -1,17 +1,15 @@
 import React, { useState, useRef } from "react";
 import styles from "./receiptScanContents.module.css";
 import { OcrResult, OcrResultItem, Category } from "@/types";
-import { categories, mockOcrResult } from "@/mock/users";
+import { categories } from "@/mock/users";
 import Image from "next/image";
-// import { useRouter } from "next/router";
+import { useSpaceContext } from "@/context/SpaceContext"; // 추가
 
 const ReceiptScanContents: React.FC = () => {
-  // 현재는 사용하지 않음
-  // const router = useRouter();
-  // const { spaceId: querySpaceId } = router.query;
-
+  const { spaceId } = useSpaceContext(); // spaceId 가져오기
   const [ocrData, setOcrData] = useState<OcrResult | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null); // 추가
   const [items, setItems] = useState<OcrResultItem[]>([
     { name: "", quantity: 1, amount: 0, category: "" },
   ]);
@@ -25,16 +23,48 @@ const ReceiptScanContents: React.FC = () => {
       return;
     }
     setFileName(file.name);
+    setUploadedFile(file); // 추가
   };
 
   // 스캔 버튼 핸들러
   const handleScan = async () => {
-    if (!fileName) {
+    if (!fileName || !uploadedFile) {
       alert("스캔할 파일을 입력해주세요.");
       return;
     }
-    setOcrData(mockOcrResult);
-    setItems(mockOcrResult.items);
+
+    if (!spaceId) {
+      alert("유효한 spaceId가 없습니다.");
+      return;
+    }
+
+    // FormData 생성
+    const formData = new FormData();
+    formData.append("file", uploadedFile);
+    formData.append("spaceId", spaceId);
+
+    try {
+      // 백엔드 API 호출
+      const response = await fetch("/api/uploadImage", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        alert("이미지 파일이 성공적으로 전송되었습니다.");
+
+        // 백엔드에서 받은 OCR 결과를 상태로 설정
+        setOcrData(data.ocrResult);
+        setItems(data.ocrResult.items);
+      } else {
+        alert(data.message || "이미지 업로드에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("이미지 업로드 오류:", error);
+      alert("이미지 업로드 중 오류가 발생했습니다.");
+    }
   };
 
   // 항목 추가
@@ -103,8 +133,11 @@ const ReceiptScanContents: React.FC = () => {
     };
 
     try {
-      // 일시적으로 spaceId를 "3"으로 설정
-      const spaceId = "3"; // TODO: 나중에 동적으로 전달할 spaceId로 변경
+      // 컨텍스트에서 가져온 spaceId 사용
+      if (!spaceId) {
+        alert("유효한 spaceId가 없습니다.");
+        return;
+      }
 
       // 백엔드 API 호출
       const response = await fetch("/api/saveOcrResult", {
@@ -113,7 +146,7 @@ const ReceiptScanContents: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          spaceId: spaceId, // 동적으로 전달된 spaceId 사용
+          spaceId: spaceId, // 컨텍스트에서 가져온 spaceId 사용
           ocrResult: ocrResultToSave,
         }),
       });

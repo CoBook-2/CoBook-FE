@@ -6,6 +6,7 @@ export interface Space {
   spaceId: string;
   enterCode?: string;
   ocrResults?: OcrResult[];
+  receivedImages?: { fileName: string }[]; // 추가
 }
 
 // 클라이언트용 User 인터페이스 (password 없음)

@@ -1,0 +1,57 @@
+.calendarContainer {
+  width: 100%;
+  max-width: 800px; /* 원하는 최대 너비로 조정 */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.highlight {
+  border: 2px solid blue;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 auto;
+}
+
+.totalAmount {
+  font-size: 0.8em;
+  color: green;
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.current-date {
+  border: 2px solid blue;
+}
+
+/* 캘린더 셀 내 콘텐츠 정렬 및 크기 조절 */
+.react-calendar__tile {
+  position: relative;
+  height: 120px; /* 각 날짜 셀의 높이 조절 */
+}
+
+/* 선택된 날짜 정보 스타일링 */
+.selectedDateInfo {
+  margin-left: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.selectedDateInfo h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+}
+
+.selectedDateInfo p {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+}
