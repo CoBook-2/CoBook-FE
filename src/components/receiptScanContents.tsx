@@ -247,6 +247,7 @@ const ReceiptScanContents: React.FC = () => {
                   onChange={(e) =>
                     handleChangeItem(index, "name", e.target.value)
                   }
+                  className={styles.itemNameInput} // 클래스명 추가
                 />
                 <input
                   type="number"
@@ -254,6 +255,7 @@ const ReceiptScanContents: React.FC = () => {
                   onChange={(e) =>
                     handleChangeItem(index, "quantity", Number(e.target.value))
                   }
+                  className={styles.itemQuantityInput} // 클래스명 추가
                 />
                 <input
                   type="number"
@@ -261,6 +263,7 @@ const ReceiptScanContents: React.FC = () => {
                   onChange={(e) =>
                     handleChangeItem(index, "amount", Number(e.target.value))
                   }
+                  className={styles.itemAmountInput} // 클래스명 추가
                 />
                 <select
                   value={item.category}
@@ -271,6 +274,7 @@ const ReceiptScanContents: React.FC = () => {
                       e.target.value as Category | ""
                     )
                   }
+                  className={styles.itemCategorySelect} // 클래스명 추가
                 >
                   <option value="">카테고리 선택</option>
                   {categories.map((category) => (

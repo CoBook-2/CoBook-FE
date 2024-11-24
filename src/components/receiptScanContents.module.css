@@ -15,8 +15,6 @@
   flex-direction: column;
   justify-content: center; /* 세로 중앙 정렬 */
   align-items: center; /* 가로 중앙 정렬 */
-
-  /* 크기 조정: 위아래 10%, 양옆 30% 줄이기 */
   height: 80%; /* 90% - 10% */
   width: 70%; /* 100% - 30% */
 }
@@ -128,13 +126,15 @@
 }
 
 .fieldRow input {
+  flex: 2; /* 기존 flex: 3에서 변경 */
   border: none; /* 테두리 제거 */
   background-color: #f0f0f0; /* 연한 회색 배경 */
   padding: 0.5rem;
   border-radius: 4px;
-  flex: 3;
+  box-sizing: border-box;
 }
 
+/* .itemRow 관련 스타일 */
 .itemsHeader {
   display: flex;
   align-items: center;
@@ -146,6 +146,9 @@
   font-weight: 600;
   flex: 1;
   text-align: center;
+  display: flex; /* 추가 */
+  align-items: center; /* 추가: 수직 중앙 정렬 */
+  justify-content: center; /* 추가: 수평 중앙 정렬 */
 }
 
 .addButton,
@@ -196,17 +199,79 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
+  flex-wrap: nowrap; /* 요소들이 한 줄에 유지되도록 설정 */
 }
 
-.itemRow input,
-.itemRow select {
-  border: none; /* 테두리 제거 */
-  background-color: #f0f0f0; /* 연한 회색 배경 */
+/* 상품명 입력 필드 (텍스트 입력) - 현재의 2/3 크기로 줄임 */
+.itemNameInput {
+  flex: 1.2; /* 기존 flex: 2에서 2/3로 줄임 */
+  max-width: 120px; /* 기존 max-width: 200px의 2/3 */
+  border: none;
+  background-color: #f0f0f0;
   padding: 0.5rem;
   border-radius: 4px;
-  flex: 1;
+  box-sizing: border-box;
 }
 
+/* 수량 입력 필드 (숫자 입력) - 현재의 2/3 크기로 줄임 */
+.itemQuantityInput {
+  flex: 1.2; 
+  max-width: 120px; /* 기존 max-width: 200px의 2/3 */
+  border: none;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 금액 입력 필드 (숫자 입력) - 현재의 2/3 크기로 줄임 */
+.itemAmountInput {
+  flex: 1.2; 
+  max-width: 120px; /* 기존 max-width: 200px의 2/3 */
+  border: none;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 카테고리 선택 필드 (셀렉트) - 크기 유지 */
+.itemCategorySelect {
+  flex: 0 0 150px; /* 기존 고정 너비 유지 */
+  max-width: 150px; /* 기존 max-width 유지 */
+  border: none;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 제거 버튼 스타일 유지 */
+.removeButton {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover:enabled {
+  background-color: #d9363e;
+}
+
+.removeButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 저장 버튼 스타일 */
 .saveButtonContainer {
   display: flex;
   justify-content: flex-end;
@@ -243,5 +308,50 @@
   }
   100% {
     box-shadow: 0 0 5px blue;
+  }
+}
+
+/* 반응형 디자인: 화면 너비가 768px 이하일 때 */
+@media (max-width: 768px) {
+  .itemNameInput {
+    max-width: 100px; /* 더 작은 화면을 위해 추가로 줄임 */
+    flex: 1;
+  }
+
+  .itemQuantityInput {
+    flex: 0 0 40px; /* 너비 줄임 */
+  }
+
+  .itemAmountInput {
+    flex: 0 0 50px; /* 너비 줄임 */
+  }
+
+  .itemCategorySelect {
+    flex: 0 0 120px; /* 너비 줄임 */
+  }
+}
+
+/* 추가적인 작은 화면 대응: 화면 너비가 480px 이하일 때 */
+@media (max-width: 480px) {
+  .itemNameInput {
+    max-width: 80px;
+    flex: 0.8;
+  }
+
+  .itemQuantityInput {
+    flex: 0 0 30px;
+  }
+
+  .itemAmountInput {
+    flex: 0 0 40px;
+  }
+
+  .itemCategorySelect {
+    flex: 0 0 100px;
+  }
+
+  .removeButton {
+    width: 35px;
+    height: 35px;
   }
 }
