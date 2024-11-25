@@ -36,6 +36,7 @@ export interface OcrResult {
   author: string; // 작성자
   items: OcrResultItem[]; // 항목 목록
   totalAmount: number; // 총금액
+  category: string;
 }
 
 export type Button = {

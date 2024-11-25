@@ -1,57 +1,61 @@
 .calendarContainer {
-  width: 100%;
-  max-width: 800px; /* 원하는 최대 너비로 조정 */
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  padding: 20px;
+  max-width: 800px; /* 캘린더의 최대 너비 설정 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+.current-date {
+  background-color: #f0f8ff; /* 현재 날짜 하이라이트 색상 */
 }
 
 .highlight {
-  border: 2px solid blue;
+  background-color: #ffeb3b; /* OCR 결과가 있는 날짜 하이라이트 색상 */
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
+  width: 15px; /* 크기 조정 */
+  height: 15px; /* 크기 조정 */
   margin: 0 auto;
 }
 
 .totalAmount {
   font-size: 0.8em;
-  color: green;
-  text-align: center;
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.current-date {
-  border: 2px solid blue;
-}
-
-/* 캘린더 셀 내 콘텐츠 정렬 및 크기 조절 */
-.react-calendar__tile {
-  position: relative;
-  height: 120px; /* 각 날짜 셀의 높이 조절 */
-}
-
-/* 선택된 날짜 정보 스타일링 */
-.selectedDateInfo {
-  margin-left: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.selectedDateInfo h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-}
-
-.selectedDateInfo p {
-  margin: 0;
-  font-size: 1em;
   color: #333;
+}
+
+.selectedDateInfo {
+  margin-top: 20px;
+}
+
+/* 캘린더의 크기 조정을 위한 스타일 */
+.fc {
+  font-size: 0.9em; /* 캘린더의 전체 폰트 크기 조정 */
+}
+
+.fc-toolbar-title {
+  font-size: 1.2em; /* 캘린더 헤더 제목 크기 조정 */
+}
+
+.fc-daygrid-day {
+  height: 80px; /* 일별 셀의 높이 설정 */
+}
+
+.fc-daygrid-event {
+  font-size: 0.8em; /* 이벤트의 폰트 크기 조정 */
+}
+
+/* 카테고리 필터링 UI 스타일 */
+.filterContainer {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.filterCheckbox {
+  margin-right: 5px;
 }
